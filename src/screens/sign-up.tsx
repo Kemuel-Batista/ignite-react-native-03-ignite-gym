@@ -9,11 +9,11 @@ import BackgroundImg from '@assets/background.png'
 import { Input } from '@components/input'
 import { Button } from '@components/button'
 
-export function SignIn() {
+export function SignUp() {
   const navigation = useNavigation<AuthNavigatorRoutesProps>()
 
-  function handleNewAccount() {
-    navigation.navigate('signUp')
+  function handleGoBack() {
+    navigation.goBack()
   }
 
   return (
@@ -40,8 +40,10 @@ export function SignIn() {
 
         <Center>
           <Heading color="gray.100" fontSize="xl" mb="6" fontFamily="heading">
-            Acesse sua conta
+            Crie sua conta
           </Heading>
+
+          <Input placeholder="Nome" />
 
           <Input
             placeholder="E-mail"
@@ -50,20 +52,15 @@ export function SignIn() {
           />
           <Input placeholder="Senha" secureTextEntry />
 
-          <Button title="Acessar" />
+          <Button title="Criar e acessar" />
         </Center>
 
-        <Center mt={24}>
-          <Text color="gray.100" fontSize="sm" mb={3} fontFamily="body">
-            Ainda não tem acesso?
-          </Text>
-
-          <Button
-            title="Criar conta"
-            variant="outline"
-            onPress={handleNewAccount}
-          />
-        </Center>
+        <Button
+          title="Voltar para o login"
+          variant="outline"
+          mt={24}
+          onPress={handleGoBack}
+        />
       </VStack>
     </ScrollView>
   )
